@@ -7,30 +7,14 @@
 // output: 7
 
 function daysPosition(day, offset) {
-    switch (day.toLowerCase()) {
-        case 'sunday':
-            if (offset == false) {
-                return 1
-            }
-            else {
-                return 7
-            }
+    switch (day.toLowerCase(), offset) {
+        case ('sunday', false):
+        case ('monday', true):
+            return 1
             break;
-        case 'monday':
-            if (offset !== false) {
-                return 1
-            }
-            else {
-                return 2
-            }
-            break;
-        case 'tuesday':
-            if (offset == false) {
-                return 3
-            }
-            else {
-                return 2
-            }
+        case ('monday', false):
+        case ('tuesday', true):
+            return 2
             break;
         default:
             return 'That\'s not a day of the week'
@@ -54,7 +38,30 @@ function daysPosition(day, offset) {
  */
 
 function golfScore(score, par) {
+    let diff = score - par
+    switch (diff) {
+        case (diff = -3) || (score == 1):
+            return 'Ace'
+            break;
+        case diff = -2:
+            return 'Eagle'
+            break;
+        case diff = -1:
+            return 'Birdie'
+            break;
+        case diff = 0:
+            return 'Par'
+            break;
+        case diff = 1:
+            return "Bogie"
+            break;
+        case diff = 2:
+            return "Double Bogie"
+            break;
+        default:
+            return "Ouch"
 
+    }
 }
 
 
@@ -79,5 +86,68 @@ function golfScore(score, par) {
 let count = 0
 
 function cardCounter(card) {
-
+    count = 0
+    switch (card) {
+        case card < 7:
+            count++
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+            break;
+        case (card > 6) && (card < 10):
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+            break;
+        case card == 10:
+            count--
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+            break;
+        case card == 'J':
+            count--
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+            break;
+        case card == 'Q':
+            count--
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+            break;
+        case card == 'K':
+            count--
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+            break;
+        default:
+            count--
+            if (count > 0) {
+                return count.toString() + ' Bet'
+            }
+            else {
+                return count.toString() + ' Hold'
+            }
+    }
 }
